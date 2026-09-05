@@ -42,6 +42,7 @@ import {
   EmptyTitle,
 } from '@/components/ui/empty';
 import { useRoll } from '@/lib/use-roll';
+import { TimeScale } from '@/components/time-scale';
 import { useLocale } from '@/lib/use-locale';
 import {
   languages,
@@ -65,13 +66,12 @@ import {
   undoExchange,
   updateGoal,
   updatePreferences,
-  yearProgress,
   type Outcome,
   type Preferences,
   type State,
 } from '@/lib/roll';
 
-type Modal = 'exchange' | 'goal' | 'undo' | null;
+type Modal = 'exchange' | 'scale' | 'goal' | 'undo' | null;
 
 export default function Home() {
   const { state, ready, error, commit } = useRoll();
@@ -101,11 +101,28 @@ export default function Home() {
   const [pace, setPace] = useState('2');
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
+  const [recordedAt, setRecordedAt] = useState(0);
+  const [scaleSnapshot, setScaleSnapshot] = useState<{
+    history: State['history'];
+    endedAt: string;
+    revision: number;
+    asOf: number;
+  } | null>(null);
   const [outcome, setOutcome] = useState<Outcome | ''>('');
   const [note, setNote] = useState('');
   const [nextGoal, setNextGoal] = useState('');
   const busy = useRef(false);
+  const dialogPanel = useRef<HTMLDivElement>(null);
+  const dialogHeading = useRef<HTMLHeadingElement>(null);
   const active = state.active;
+  useEffect(() => {
+    if (modal !== 'scale') return;
+    const frame = requestAnimationFrame(() => {
+      dialogPanel.current?.scrollTo({ top: 0 });
+      dialogHeading.current?.focus({ preventScroll: true });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [modal]);
   useEffect(() => {
     const tick = () => setNow(new Date());
     tick();
@@ -157,6 +174,8 @@ export default function Home() {
     setGoal(active?.goal || goals[0]);
     setNextGoal(active?.goal || goals[0]);
     setEnd('');
+    setRecordedAt(Date.now());
+    setScaleSnapshot(null);
     setOutcome('');
     setNote('');
     setModal(kind);
@@ -243,12 +262,11 @@ export default function Home() {
   }, [ready]);
   const time = active && now ? elapsed(active.startedAt, now.getTime()) : null;
   const eq = active && now ? equivalent(active, now.getTime()) : null;
-  const year = now ? yearProgress(now) : null;
   const totalMinutes = state.history.reduce(
     (sum, h) => sum + equivalent(h, Date.parse(h.endedAt)).minutes,
     0,
   );
-  const previewEnd = end ? Date.parse(end) : now?.getTime();
+  const previewEnd = end ? Date.parse(end) : recordedAt;
   const reviewTime =
     active && previewEnd && Number.isFinite(previewEnd)
       ? elapsed(active.startedAt, previewEnd)
@@ -662,59 +680,18 @@ export default function Home() {
                 </section>
               </>
             )}
-            {year && (
-              <section className="year-card">
-                <div className="year-heading">
-                  <div>
-                    <span className="eyebrow">{t('THE DAYS AHEAD')}</span>
-                    <h2>
-                      {t('{year}年、これからの時間。', {
-                        year: String(year.year),
-                      })}
-                    </h2>
-                  </div>
+            {state.history.length === 0 && (
+              <aside className="scale-locked">
+                <CircleDashed />
+                <div>
+                  <h2>{t('時間スケールは、最初の1本のあとに。')}</h2>
                   <p>
-                    <strong>{number(year.remaining)}</strong>{' '}
-                    {unitLabel(formatLocale, year.remaining, 'day')}{' '}
-                    <span className="remaining-label">{t('年の残り')}</span>
-                    <small>{t('今日を含む')}</small>
+                    {t(
+                      'まずは、ひと巻き分の暮らしを観測しましょう。交換すると、あなたのペースで時間をロールに換算できます。',
+                    )}
                   </p>
                 </div>
-                <figure
-                  className="year-dots"
-                  aria-label={t('年の図の説明', {
-                    year: String(year.year),
-                    total: number(year.total),
-                    passed: number(year.passed),
-                    remaining: number(year.remaining),
-                  })}
-                >
-                  {Array.from({ length: year.total }, (_, i) => (
-                    <span
-                      key={i}
-                      aria-hidden="true"
-                      className={
-                        i < year.passed
-                          ? 'past'
-                          : i === year.passed
-                            ? 'today'
-                            : 'future'
-                      }
-                    />
-                  ))}
-                </figure>
-                <div className="year-legend">
-                  <span>{t('1マス = 1日')}</span>
-                  <span>
-                    <i className="legend-past" />
-                    {t('過ぎた日')}
-                    <i className="legend-today" />
-                    {t('今日')}
-                    <i className="legend-future" />
-                    {t('これから')}
-                  </span>
-                </div>
-              </section>
+              </aside>
             )}
           </TabsContent>
           <TabsContent value="history">
@@ -936,7 +913,7 @@ export default function Home() {
         </footer>
       </main>
       <Dialog
-        open={modal === 'exchange' || modal === 'goal'}
+        open={modal === 'exchange' || modal === 'scale' || modal === 'goal'}
         onOpenChange={(value) => {
           if (!value) {
             setModal(null);
@@ -944,7 +921,11 @@ export default function Home() {
           }
         }}
       >
-        <DialogContent className="roll-dialog" showCloseButton={false}>
+        <DialogContent
+          ref={dialogPanel}
+          className={`roll-dialog ${modal === 'scale' ? 'scale-dialog' : ''}`}
+          showCloseButton={false}
+        >
           <DialogClose
             render={
               <Button
@@ -956,42 +937,61 @@ export default function Home() {
           >
             <X />
           </DialogClose>
-          <DialogTitle className="dialog-title">
-            {modal === 'exchange'
-              ? t('ひと巻き、おつかれさま。')
-              : modal === 'goal'
-                ? t('目標を、いまの自分に合わせる。')
-                : t('直前の交換を取り消しますか？')}
+          <DialogTitle
+            className="dialog-title"
+            ref={dialogHeading}
+            tabIndex={-1}
+          >
+            {modal === 'scale'
+              ? t('ひと巻きから、もっと先の時間へ。')
+              : modal === 'exchange'
+                ? t('ひと巻き、おつかれさま。')
+                : modal === 'goal'
+                  ? t('目標を、いまの自分に合わせる。')
+                  : t('直前の交換を取り消しますか？')}
           </DialogTitle>
           <DialogDescription>
-            {modal === 'exchange'
-              ? t('過ごした時間を振り返って、次の小さな一歩へ。')
-              : modal === 'goal'
-                ? t('小さくしても、変えても大丈夫です。')
-                : t(
-                    '直前の振り返りと、現在の目標を取り消し、前のロールを使用中に戻します。',
-                  )}
+            {modal === 'scale'
+              ? t('少し先を眺めたら、次の小さな目標へ。')
+              : modal === 'exchange'
+                ? t('過ごした時間を振り返って、次の小さな一歩へ。')
+                : modal === 'goal'
+                  ? t('小さくしても、変えても大丈夫です。')
+                  : t(
+                      '直前の振り返りと、現在の目標を取り消し、前のロールを使用中に戻します。',
+                    )}
           </DialogDescription>
           {modal === 'exchange' && active && (
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                run(
-                  (s) =>
-                    exchangeRoll(
-                      s,
-                      {
-                        endedAt: end
-                          ? new Date(end).toISOString()
-                          : new Date().toISOString(),
-                        outcome: outcome as Outcome,
-                        note,
-                        nextGoal,
-                      },
-                      Date.now(),
-                    ),
-                  '振り返りを保存しました。新しいひと巻きが始まります。',
-                );
+                try {
+                  const endedAt = end
+                    ? new Date(end).toISOString()
+                    : new Date(recordedAt).toISOString();
+                  const candidate = exchangeRoll(
+                    state,
+                    {
+                      endedAt,
+                      outcome: outcome as Outcome,
+                      note,
+                      nextGoal: active.goal,
+                    },
+                    Date.now(),
+                  );
+                  setScaleSnapshot({
+                    history: candidate.history,
+                    endedAt,
+                    revision: state.revision,
+                    asOf: Date.now(),
+                  });
+                  setActionError('');
+                  setModal('scale');
+                } catch (error) {
+                  setActionError(
+                    error instanceof Error ? error.message : '入力エラー',
+                  );
+                }
               }}
             >
               <div className="review-summary">
@@ -1021,7 +1021,7 @@ export default function Home() {
                   onChange={(e) => setEnd(e.target.value)}
                 />
                 <p className="field-note">
-                  {t('空欄なら、保存した時刻で記録します。')}
+                  {t('空欄なら、交換ボタンを押した時刻で記録します。')}
                 </p>
               </details>
               <p className="review-goal">
@@ -1058,14 +1058,6 @@ export default function Home() {
                 maxLength={500}
                 placeholder={t('できたこと、気づいたこと。')}
               />
-              <label htmlFor="next-goal">{t('次のひと巻きまでの目標')}</label>
-              <Input
-                id="next-goal"
-                required
-                maxLength={100}
-                value={nextGoal}
-                onChange={(e) => setNextGoal(e.target.value)}
-              />
               {actionError && (
                 <p role="alert" className="error-message">
                   {localizeError(locale, actionError)}
@@ -1076,10 +1068,77 @@ export default function Home() {
                 className="primary-action"
                 disabled={!outcome || !!error}
               >
-                {t('振り返りを保存して、次へ')}
+                {t('振り返って、時間スケールへ')}
                 <ArrowRight />
               </Button>
             </form>
+          )}
+          {modal === 'scale' && scaleSnapshot && (
+            <div className="scale-stage">
+              <TimeScale
+                history={scaleSnapshot.history}
+                asOf={scaleSnapshot.asOf}
+                locale={locale}
+                formatLocale={formatLocale}
+              />
+              <form
+                className="next-roll-form"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  run((previous) => {
+                    if (previous.revision !== scaleSnapshot.revision)
+                      throw new Error(
+                        '別の画面で記録が変わりました。最新の内容を確認して、もう一度操作してください。',
+                      );
+                    return exchangeRoll(
+                      previous,
+                      {
+                        endedAt: scaleSnapshot.endedAt,
+                        outcome: outcome as Outcome,
+                        note,
+                        nextGoal,
+                      },
+                      Date.now(),
+                    );
+                  }, '振り返りを保存しました。新しいひと巻きが始まります。');
+                }}
+              >
+                <p className="eyebrow">{t('次のひと巻きに戻ろう。')}</p>
+                <label htmlFor="next-goal">{t('次のひと巻きまでの目標')}</label>
+                <Input
+                  id="next-goal"
+                  required
+                  maxLength={100}
+                  value={nextGoal}
+                  onChange={(e) => setNextGoal(e.target.value)}
+                />
+
+                {actionError && (
+                  <p role="alert" className="error-message">
+                    {localizeError(locale, actionError)}
+                  </p>
+                )}
+                <Button
+                  type="submit"
+                  className="primary-action"
+                  disabled={!!error}
+                >
+                  {t('振り返りを保存して、次へ')}
+                  <ArrowRight />
+                </Button>
+              </form>
+              <Button
+                type="button"
+                variant="ghost"
+                className="cancel-button"
+                onClick={() => {
+                  setActionError('');
+                  setModal('exchange');
+                }}
+              >
+                {t('振り返りに戻る')}
+              </Button>
+            </div>
           )}
           {modal === 'goal' && (
             <form

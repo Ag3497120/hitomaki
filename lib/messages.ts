@@ -182,6 +182,93 @@ export const messages = {
     読書の換算結果: '読書の換算結果',
     'goalだけを文字列で指定してください。':
       'goalだけを文字列で指定してください。',
+    時間スケール: '時間スケール',
+    '時間スケールが開きました。': '時間スケールが開きました。',
+    'このペースで、時間をロールに。': 'このペースで、時間をロールに。',
+    '今回を含む{count}本からの換算': '今回を含む{count}本からの換算',
+    '初期推定・1本の観測': '初期推定・1本の観測',
+    観測にもとづく換算: '観測にもとづく換算',
+    '平均{days}日／ロール': '平均{days}日／ロール',
+    年数の目安: '{years}年',
+    '約{rolls}ロール': '約{rolls}ロール',
+    'このペースが続くと仮定した換算です。予測の確かさを示すものではありません。':
+      'このペースが続くと仮定した換算です。予測の確かさを示すものではありません。',
+    '直近30日間に終了した{count}本': '直近30日間に終了した{count}本',
+    観測と計算の根拠: '観測と計算の根拠',
+    観測した時間: '観測した時間',
+    '{days}日・{count}本': '{days}日・{count}本',
+    平均間隔の式: '平均間隔の式',
+    年間換算の式: '年間換算の式',
+    時間スケールの計算説明:
+      '使い切ったロールのみを使い、記録した経過日数の合計 ÷ 本数で平均間隔を計算します。1年は365.2425日とし、10年・30年は丸める前の平均から換算します。表示するロール数は四捨五入します。直近30日の平均は、その期間に終了したロールの全使用期間を使い、30日前の境界では切り詰めません。',
+    '同居人数やロールの長さが変わると、交換のペースも変わります。':
+      '同居人数やロールの長さが変わると、交換のペースも変わります。',
+    '観測間隔が1日未満です。開始・交換日時が正しいか確認してください。':
+      '観測間隔が1日未満です。開始・交換日時が正しいか確認してください。',
+    '{year}年をロールで見る': '{year}年をロールで見る',
+    年のロール図:
+      '{year}年を約{count}ロールに換算し、年の経過割合で分けた図です。実際の交換履歴ではありません。',
+    '1マスは最大{count}ロール': '1マスは最大{count}ロール',
+    換算上の過去: '換算上の過去',
+    換算上のこれから: '換算上のこれから',
+    '今年の図は年の進行割合を当てはめたイメージです。実際の交換履歴ではありません。':
+      '今年の図は年の進行割合を当てはめたイメージです。実際の交換履歴ではありません。',
+    'Life Viewを閉じる': 'Life Viewを閉じる',
+    自分で選ぶ時間軸を見る: '自分で選ぶ時間軸を見る',
+    'Life Viewは任意です。年齢の目安を選んだときだけ表示します。':
+      'Life Viewは任意です。年齢の目安を選んだときだけ表示します。',
+    '何歳までを、一つの目安にしますか？': '何歳までを、一つの目安にしますか？',
+    '寿命の予測ではなく、自分で選ぶ時間の目安です。':
+      '寿命の予測ではなく、自分で選ぶ時間の目安です。',
+    現在の年齢: '現在の年齢',
+    歳: '歳',
+    基準にする年齢: '基準にする年齢',
+    自分で設定: '自分で設定',
+    '{age}歳': '{age}歳',
+    基準年齢を入力: '基準年齢を入力',
+    この目安で見る: 'この目安で見る',
+    'あなたが選んだ{age}歳という目安まで':
+      'あなたが選んだ{age}歳という目安まで',
+    'あと約{rolls}ロール': 'あと約{rolls}ロール',
+    '約{days}日': '約{days}日',
+    '基準日は{date}、その時点で{age}歳として設定':
+      '基準日は{date}、その時点で{age}歳として設定',
+    '選んだ時間の目安に到達しました。必要なら、新しい目安を選べます。':
+      '選んだ時間の目安に到達しました。必要なら、新しい目安を選べます。',
+    表示の細かさ: '表示の細かさ',
+    選んだ時間軸の図:
+      '選んだ目安まで約{rolls}ロール。1マスは最大{group}ロールを表します。',
+    '表示は最大600マスにまとめます。': '表示は最大600マスにまとめます。',
+    'Life Viewの計算説明':
+      '設定時の年齢差 × 365.2425で日数を概算し、その日付に目安を固定します。今回は{days}日 ÷ 1ロールあたり{interval}日で換算しています。生年月日を使わないため、年齢にもとづく日付は概算です。',
+    実際に記録した区切りを見る: '実際に記録した区切りを見る',
+    ロール番号: '{count}本目',
+    '今回の振り返りは、次の目標と一緒に最後に保存します。':
+      '今回の振り返りは、次の目標と一緒に最後に保存します。',
+    '時間スケールは、最初の1本のあとに。':
+      '時間スケールは、最初の1本のあとに。',
+    'まずは、ひと巻き分の暮らしを観測しましょう。交換すると、あなたのペースで時間をロールに換算できます。':
+      'まずは、ひと巻き分の暮らしを観測しましょう。交換すると、あなたのペースで時間をロールに換算できます。',
+    'ひと巻きから、もっと先の時間へ。': 'ひと巻きから、もっと先の時間へ。',
+    '少し先を眺めたら、次の小さな目標へ。':
+      '少し先を眺めたら、次の小さな目標へ。',
+    '空欄なら、交換ボタンを押した時刻で記録します。':
+      '空欄なら、交換ボタンを押した時刻で記録します。',
+    '振り返って、時間スケールへ': '振り返って、時間スケールへ',
+    '次のひと巻きに戻ろう。': '次のひと巻きに戻ろう。',
+    振り返りに戻る: '振り返りに戻る',
+    '記録の日時を確認してください。': '記録の日時を確認してください。',
+    '基準年齢は現在の年齢より大きい整数で、150歳以下にしてください。':
+      '基準年齢は現在の年齢より大きい整数で、150歳以下にしてください。',
+    'Life Viewの設定を読み込めませんでした。':
+      'Life Viewの設定を読み込めませんでした。',
+    'Life Viewの設定を保存できませんでした。':
+      'Life Viewの設定を保存できませんでした。',
+    '年齢を入力してください。': '年齢を入力してください。',
+    約1ロール: '約1ロール',
+    '1マスは1ロール': '1マスは1ロール',
+    あと約1ロール: 'あと約1ロール',
+    約1日: '約1日',
   },
   en: {
     ひと巻き: 'Between Rolls',
@@ -370,6 +457,98 @@ export const messages = {
     仮定: 'Assumptions',
     読書の換算結果: 'Reading equivalent',
     'goalだけを文字列で指定してください。': 'Provide only a goal string.',
+    時間スケール: 'Time in rolls',
+    '時間スケールが開きました。': 'A DIFFERENT SCALE OF TIME',
+    'このペースで、時間をロールに。': 'Your pace. A new way to see time.',
+    '今回を含む{count}本からの換算':
+      'Completed rolls observed: {count} (including this one)',
+    '初期推定・1本の観測': 'Early estimate · one observed roll',
+    観測にもとづく換算: 'Based on your observations',
+    '平均{days}日／ロール': 'Average: {days} d / roll',
+    年数の目安: '{years} yr',
+    '約{rolls}ロール': '≈ {rolls} rolls',
+    'このペースが続くと仮定した換算です。予測の確かさを示すものではありません。':
+      'This assumes the same pace continues. More observations describe your habits; they don’t make the future certain.',
+    '直近30日間に終了した{count}本':
+      'Rolls finished in the last 30 days: {count}',
+    観測と計算の根拠: 'Observations and assumptions',
+    観測した時間: 'Observed time',
+    '{days}日・{count}本': '{days} days · {count} rolls',
+    平均間隔の式: 'Days observed ÷ rolls completed',
+    年間換算の式: 'Days per year ÷ average interval',
+    時間スケールの計算説明:
+      'We use completed rolls only. Average interval = total recorded elapsed days ÷ completed rolls. One year is set to 365.2425 days. The 10- and 30-year figures use the unrounded average. Displayed roll counts are rounded to the nearest whole number. The recent average uses the full intervals of rolls finished in the last 30 days; it does not trim intervals at the window boundary.',
+    '同居人数やロールの長さが変わると、交換のペースも変わります。':
+      'Changes in household size or roll length can change this pace.',
+    '観測間隔が1日未満です。開始・交換日時が正しいか確認してください。':
+      'The observed average is under a day. Check that the start and change times are correct.',
+    '{year}年をロールで見る': '{year}, imagined in rolls',
+    年のロール図:
+      'A model of {year} as approximately {count} rolls, divided by the year’s elapsed fraction. Not recorded usage.',
+    '1マスは最大{count}ロール': 'Up to {count} rolls per square',
+    換算上の過去: 'Elapsed, in this model',
+    換算上のこれから: 'Ahead, in this model',
+    '今年の図は年の進行割合を当てはめたイメージです。実際の交換履歴ではありません。':
+      'This picture applies the year’s progress to the estimated roll count. It does not show your actual roll changes.',
+    'Life Viewを閉じる': 'Close Life View',
+    自分で選ぶ時間軸を見る: 'Choose a horizon · Life View',
+    'Life Viewは任意です。年齢の目安を選んだときだけ表示します。':
+      'Life View is optional. Choose an age as a reference if you want to explore further.',
+    '何歳までを、一つの目安にしますか？':
+      'What age would you like to use as a reference?',
+    '寿命の予測ではなく、自分で選ぶ時間の目安です。':
+      'This is a horizon you choose, not a prediction of how long you’ll live.',
+    現在の年齢: 'Your current age',
+    歳: 'years',
+    基準にする年齢: 'Reference age',
+    自分で設定: 'Custom',
+    '{age}歳': 'Age {age}',
+    基準年齢を入力: 'Enter a reference age',
+    この目安で見る: 'Use this horizon',
+    'あなたが選んだ{age}歳という目安まで':
+      'Until your chosen reference age of {age}',
+    'あと約{rolls}ロール': 'About {rolls} rolls to that horizon',
+    '約{days}日': 'About {days} days',
+    '基準日は{date}、その時点で{age}歳として設定':
+      'Set on {date}, using age {age} at that time',
+    '選んだ時間の目安に到達しました。必要なら、新しい目安を選べます。':
+      'You’ve reached your chosen reference point. You can choose a new one if you wish.',
+    表示の細かさ: 'View scale',
+    選んだ時間軸の図:
+      'Approximately {rolls} rolls to your chosen horizon. Each square represents up to {group} rolls.',
+    '表示は最大600マスにまとめます。':
+      'The view groups rolls into at most 600 squares.',
+    'Life Viewの計算説明':
+      'When you set a reference, the age difference × 365.2425 gives an approximate number of days. The target is anchored to that date. For this view: {days} days ÷ {interval} days per roll. Without a birth date, age-based dates are approximate.',
+    実際に記録した区切りを見る: 'Explore your recorded moments',
+    ロール番号: 'Roll {count}',
+    '今回の振り返りは、次の目標と一緒に最後に保存します。':
+      'This reflection will be saved with your next goal at the final step.',
+    '時間スケールは、最初の1本のあとに。':
+      'A new perspective, after your first roll.',
+    'まずは、ひと巻き分の暮らしを観測しましょう。交換すると、あなたのペースで時間をロールに換算できます。':
+      'First, live through one roll. At the next change, see what longer stretches of time look like at your own pace.',
+    'ひと巻きから、もっと先の時間へ。': 'One roll. A wider view of time.',
+    '少し先を眺めたら、次の小さな目標へ。':
+      'Take a wider view, then choose your next small step.',
+    '空欄なら、交換ボタンを押した時刻で記録します。':
+      'Leave blank to use the moment you tapped “Log a roll change”.',
+    '振り返って、時間スケールへ': 'Reflect, then see time in rolls',
+    '次のひと巻きに戻ろう。': 'BACK TO THE NEXT SMALL STEP',
+    振り返りに戻る: 'Back to your reflection',
+    '記録の日時を確認してください。':
+      'Check the dates and times in your records.',
+    '基準年齢は現在の年齢より大きい整数で、150歳以下にしてください。':
+      'Enter whole-number ages. The reference age must be higher than your current age and no more than 150.',
+    'Life Viewの設定を読み込めませんでした。':
+      'Couldn’t load your Life View settings. Enter your age and reference again if you want to replace them.',
+    'Life Viewの設定を保存できませんでした。':
+      'Couldn’t save your Life View settings. Check your browser’s storage settings.',
+    '年齢を入力してください。': 'Enter your age and a reference age.',
+    約1ロール: '≈ 1 roll',
+    '1マスは1ロール': '1 roll per square',
+    あと約1ロール: 'About 1 roll to that horizon',
+    約1日: 'About 1 day',
   },
   'zh-Hans': {
     ひと巻き: '一卷时光',
@@ -546,6 +725,90 @@ export const messages = {
     仮定: '计算假设',
     読書の換算結果: '阅读换算结果',
     'goalだけを文字列で指定してください。': '请仅提供字符串类型的goal。',
+    時間スケール: '时间尺度',
+    '時間スケールが開きました。': '换个尺度看时间',
+    'このペースで、時間をロールに。': '按你的节奏，把时间换算成纸卷。',
+    '今回を含む{count}本からの換算': '根据含本次在内的{count}卷换算',
+    '初期推定・1本の観測': '初步估算 · 仅观察了1卷',
+    観測にもとづく換算: '根据你的记录换算',
+    '平均{days}日／ロール': '平均每卷{days}天',
+    年数の目安: '{years}年',
+    '約{rolls}ロール': '约{rolls}卷',
+    'このペースが続くと仮定した換算です。予測の確かさを示すものではありません。':
+      '这是按当前节奏持续不变来换算的，并不表示未来一定如此。',
+    '直近30日間に終了した{count}本': '最近30天内用完的{count}卷',
+    観測と計算の根拠: '记录与计算依据',
+    観測した時間: '观察到的时间',
+    '{days}日・{count}本': '{days}天 · {count}卷',
+    平均間隔の式: '观察天数 ÷ 完成卷数',
+    年間換算の式: '每年天数 ÷ 平均间隔',
+    時間スケールの計算説明:
+      '仅使用已完成的纸卷记录。平均间隔 = 记录的总天数 ÷ 已完成卷数，1年按365.2425天计算。10年和30年的换算使用未取整的平均值，显示卷数时四舍五入。最近30天的平均值采用该期间内用完的每卷的完整间隔，不在30天的边界截断。',
+    '同居人数やロールの長さが変わると、交換のペースも変わります。':
+      '同住人数或纸卷长度改变时，更换节奏也会改变。',
+    '観測間隔が1日未満です。開始・交換日時が正しいか確認してください。':
+      '平均观察间隔不足1天，请确认开始和换纸时间是否正确。',
+    '{year}年をロールで見る': '用纸卷看{year}年',
+    年のロール図:
+      '将{year}年换算为约{count}卷，按年度已过比例划分，并非实际消耗记录。',
+    '1マスは最大{count}ロール': '每格最多{count}卷',
+    換算上の過去: '换算的过去',
+    換算上のこれから: '换算的未来',
+    '今年の図は年の進行割合を当てはめたイメージです。実際の交換履歴ではありません。':
+      '这张图按年度已过比例划分估算卷数，不代表实际换纸记录。',
+    'Life Viewを閉じる': '收起Life View',
+    自分で選ぶ時間軸を見る: '选择时间范围 · Life View',
+    'Life Viewは任意です。年齢の目安を選んだときだけ表示します。':
+      'Life View为可选功能，仅在你选择年龄基准后显示。',
+    '何歳までを、一つの目安にしますか？': '你想把多少岁作为一个参考？',
+    '寿命の予測ではなく、自分で選ぶ時間の目安です。':
+      '这是你选择的时间参考，并非寿命预测。',
+    現在の年齢: '当前年龄',
+    歳: '岁',
+    基準にする年齢: '参考年龄',
+    自分で設定: '自行设置',
+    '{age}歳': '{age}岁',
+    基準年齢を入力: '输入参考年龄',
+    この目安で見る: '查看这个时间范围',
+    'あなたが選んだ{age}歳という目安まで': '到你选择的{age}岁这一参考年龄',
+    'あと約{rolls}ロール': '距此约{rolls}卷',
+    '約{days}日': '约{days}天',
+    '基準日は{date}、その時点で{age}歳として設定':
+      '设定于{date}，当时以{age}岁计算',
+    '選んだ時間の目安に到達しました。必要なら、新しい目安を選べます。':
+      '已到达你选择的时间参考点，需要时可以重新选择。',
+    表示の細かさ: '显示精细度',
+    選んだ時間軸の図: '到所选参考点约{rolls}卷，每格最多表示{group}卷。',
+    '表示は最大600マスにまとめます。': '最多显示600格，数量较多时会合并显示。',
+    'Life Viewの計算説明':
+      '设置参考时，以年龄差 × 365.2425估算天数，并以设置日期固定目标时间。本次换算：{days}天 ÷ 每卷{interval}天。未输入出生日期，因此基于年龄的日期为近似值。',
+    実際に記録した区切りを見る: '查看实际记录的片段',
+    ロール番号: '第{count}卷',
+    '今回の振り返りは、次の目標と一緒に最後に保存します。':
+      '本次回顾会在最后一步与下一个目标一起保存。',
+    '時間スケールは、最初の1本のあとに。': '用完第一卷，再打开时间尺度。',
+    'まずは、ひと巻き分の暮らしを観測しましょう。交換すると、あなたのペースで時間をロールに換算できます。':
+      '先记录一卷纸陪你度过的生活。更换时，就能按你的节奏把更长的时间换算成纸卷。',
+    'ひと巻きから、もっと先の時間へ。': '从一卷，看到更远的时光。',
+    '少し先を眺めたら、次の小さな目標へ。':
+      '看一看更远的时间，再定下一个小目标。',
+    '空欄なら、交換ボタンを押した時刻で記録します。':
+      '留空则使用你点击“记录换纸”的时刻。',
+    '振り返って、時間スケールへ': '回顾，然后查看时间尺度',
+    '次のひと巻きに戻ろう。': '回到下一卷的小目标',
+    振り返りに戻る: '返回回顾',
+    '記録の日時を確認してください。': '请检查记录中的日期和时间。',
+    '基準年齢は現在の年齢より大きい整数で、150歳以下にしてください。':
+      '年龄请输入整数，参考年龄须大于当前年龄且不超过150岁。',
+    'Life Viewの設定を読み込めませんでした。':
+      '无法读取Life View设置。如需替换，请重新输入年龄和参考年龄。',
+    'Life Viewの設定を保存できませんでした。':
+      '无法保存Life View设置，请检查浏览器存储设置。',
+    '年齢を入力してください。': '请输入当前年龄和参考年龄。',
+    約1ロール: '约1卷',
+    '1マスは1ロール': '每格1卷',
+    あと約1ロール: '距此约1卷',
+    約1日: '约1天',
   },
   ko: {
     ひと巻き: '한 롤의 시간',
@@ -730,6 +993,92 @@ export const messages = {
     仮定: '계산 기준',
     読書の換算結果: '독서 환산 결과',
     'goalだけを文字列で指定してください。': 'goal 문자열만 입력해 주세요.',
+    時間スケール: '롤로 보는 시간',
+    '時間スケールが開きました。': '시간을 보는 새로운 단위',
+    'このペースで、時間をロールに。': '내 생활의 속도로 시간을 롤로 바꿔 봐요.',
+    '今回を含む{count}本からの換算': '이번을 포함해 다 쓴 {count}롤 기준',
+    '初期推定・1本の観測': '초기 추정 · 관측한 롤 1개',
+    観測にもとづく換算: '관측 기록에 따른 환산',
+    '平均{days}日／ロール': '평균 {days}일 / 롤',
+    年数の目安: '{years}년',
+    '約{rolls}ロール': '약 {rolls}롤',
+    'このペースが続くと仮定した換算です。予測の確かさを示すものではありません。':
+      '지금의 속도가 계속된다고 가정한 환산이에요. 미래의 정확성을 뜻하지는 않아요.',
+    '直近30日間に終了した{count}本': '최근 30일 안에 다 쓴 {count}롤',
+    観測と計算の根拠: '관측과 계산 근거',
+    観測した時間: '관측한 시간',
+    '{days}日・{count}本': '{days}일 · {count}롤',
+    平均間隔の式: '관측 일수 ÷ 다 쓴 롤 수',
+    年間換算の式: '1년의 일수 ÷ 평균 간격',
+    時間スケールの計算説明:
+      '다 쓴 롤의 기록만 사용해요. 평균 간격은 기록한 총 일수를 다 쓴 롤 수로 나눈 값이며, 1년은 365.2425일로 계산해요. 10년과 30년은 반올림 전 평균으로 계산하고, 표시하는 롤 수는 정수로 반올림해요. 최근 평균은 30일 안에 다 쓴 롤의 전체 사용 기간을 사용하며, 30일 경계에서 자르지 않아요.',
+    '同居人数やロールの長さが変わると、交換のペースも変わります。':
+      '함께 사는 사람 수나 롤 길이가 달라지면 교체 속도도 바뀔 수 있어요.',
+    '観測間隔が1日未満です。開始・交換日時が正しいか確認してください。':
+      '평균 관측 간격이 하루 미만이에요. 시작과 교체 시각을 확인해 주세요.',
+    '{year}年をロールで見る': '롤로 보는 {year}년',
+    年のロール図:
+      '{year}년을 약 {count}롤로 환산하고 올해의 진행 비율로 나눈 그림이에요. 실제 사용 기록은 아니에요.',
+    '1マスは最大{count}ロール': '한 칸에 최대 {count}롤',
+    換算上の過去: '환산한 과거',
+    換算上のこれから: '환산한 앞으로',
+    '今年の図は年の進行割合を当てはめたイメージです。実際の交換履歴ではありません。':
+      '올해가 지나간 비율을 환산한 롤 수에 적용한 그림이에요. 실제 교체 내역은 아니에요.',
+    'Life Viewを閉じる': 'Life View 닫기',
+    自分で選ぶ時間軸を見る: '시간의 기준 선택 · Life View',
+    'Life Viewは任意です。年齢の目安を選んだときだけ表示します。':
+      'Life View는 선택 사항이에요. 나이 기준을 직접 고른 경우에만 보여 드려요.',
+    '何歳までを、一つの目安にしますか？': '몇 살까지를 하나의 기준으로 볼까요?',
+    '寿命の予測ではなく、自分で選ぶ時間の目安です。':
+      '수명 예측이 아니라, 내가 정하는 시간의 기준이에요.',
+    現在の年齢: '현재 나이',
+    歳: '세',
+    基準にする年齢: '기준 나이',
+    自分で設定: '직접 설정',
+    '{age}歳': '{age}세',
+    基準年齢を入力: '기준 나이 입력',
+    この目安で見る: '이 기준으로 보기',
+    'あなたが選んだ{age}歳という目安まで': '직접 선택한 {age}세라는 기준까지',
+    'あと約{rolls}ロール': '그 기준까지 약 {rolls}롤',
+    '約{days}日': '약 {days}일',
+    '基準日は{date}、その時点で{age}歳として設定':
+      '{date}에 당시 {age}세로 설정했어요.',
+    '選んだ時間の目安に到達しました。必要なら、新しい目安を選べます。':
+      '선택한 시간 기준에 도달했어요. 원한다면 새로운 기준을 정할 수 있어요.',
+    表示の細かさ: '표시 단위',
+    選んだ時間軸の図:
+      '선택한 기준까지 약 {rolls}롤이에요. 한 칸은 최대 {group}롤을 나타내요.',
+    '表示は最大600マスにまとめます。': '최대 600칸으로 묶어서 표시해요.',
+    'Life Viewの計算説明':
+      '기준을 설정할 때 나이 차이 × 365.2425로 대략적인 일수를 계산하고, 설정 날짜에 목표 시점을 고정해요. 이번 환산은 {days}일 ÷ 롤당 {interval}일이에요. 생년월일을 사용하지 않으므로 나이 기준 날짜는 근사치예요.',
+    実際に記録した区切りを見る: '실제로 기록한 순간 보기',
+    ロール番号: '{count}번째 롤',
+    '今回の振り返りは、次の目標と一緒に最後に保存します。':
+      '이번 돌아보기는 마지막에 다음 목표와 함께 저장해요.',
+    '時間スケールは、最初の1本のあとに。':
+      '첫 롤이 끝나면, 시간이 새롭게 보여요.',
+    'まずは、ひと巻き分の暮らしを観測しましょう。交換すると、あなたのペースで時間をロールに換算できます。':
+      '먼저 한 롤만큼의 일상을 지켜봐요. 교체할 때 내 생활의 속도로 더 긴 시간을 롤로 바꿔 볼 수 있어요.',
+    'ひと巻きから、もっと先の時間へ。': '한 롤에서, 더 먼 시간으로.',
+    '少し先を眺めたら、次の小さな目標へ。':
+      '조금 먼 곳을 바라본 뒤, 다음 작은 목표로 돌아와요.',
+    '空欄なら、交換ボタンを押した時刻で記録します。':
+      '비워 두면 교체 기록 버튼을 누른 시각을 사용해요.',
+    '振り返って、時間スケールへ': '돌아보고, 롤로 시간 보기',
+    '次のひと巻きに戻ろう。': '다음 작은 걸음으로',
+    振り返りに戻る: '돌아보기로 돌아가기',
+    '記録の日時を確認してください。': '기록의 날짜와 시간을 확인해 주세요.',
+    '基準年齢は現在の年齢より大きい整数で、150歳以下にしてください。':
+      '나이는 정수로 입력해 주세요. 기준 나이는 현재보다 크고 150세 이하여야 해요.',
+    'Life Viewの設定を読み込めませんでした。':
+      'Life View 설정을 불러오지 못했어요. 바꾸려면 나이와 기준을 다시 입력해 주세요.',
+    'Life Viewの設定を保存できませんでした。':
+      'Life View 설정을 저장하지 못했어요. 브라우저 저장 설정을 확인해 주세요.',
+    '年齢を入力してください。': '현재 나이와 기준 나이를 입력해 주세요.',
+    約1ロール: '약 1롤',
+    '1マスは1ロール': '한 칸에 1롤',
+    あと約1ロール: '그 기준까지 약 1롤',
+    約1日: '약 1일',
   },
   es: {
     ひと巻き: 'Hitomaki',
@@ -925,5 +1274,97 @@ export const messages = {
     読書の換算結果: 'Equivalencia de lectura',
     'goalだけを文字列で指定してください。':
       'Indica únicamente una cadena de texto para goal.',
+    時間スケール: 'El tiempo en rollos',
+    '時間スケールが開きました。': 'OTRA ESCALA DEL TIEMPO',
+    'このペースで、時間をロールに。': 'Tu ritmo. Otra forma de ver el tiempo.',
+    '今回を含む{count}本からの換算':
+      'Basado en {count} rollos terminados, incluido este',
+    '初期推定・1本の観測': 'Estimación inicial · un rollo observado',
+    観測にもとづく換算: 'Basado en tus observaciones',
+    '平均{days}日／ロール': 'Media: {days} d / rollo',
+    年数の目安: '{years} a.',
+    '約{rolls}ロール': '≈ {rolls} rollos',
+    'このペースが続くと仮定した換算です。予測の確かさを示すものではありません。':
+      'Esta equivalencia supone que mantienes el mismo ritmo. No indica la certeza de una predicción.',
+    '直近30日間に終了した{count}本':
+      '{count} rollos terminados en los últimos 30 días',
+    観測と計算の根拠: 'Observaciones y cálculo',
+    観測した時間: 'Tiempo observado',
+    '{days}日・{count}本': '{days} días · {count} rollos',
+    平均間隔の式: 'Días observados ÷ rollos terminados',
+    年間換算の式: 'Días por año ÷ intervalo medio',
+    時間スケールの計算説明:
+      'Solo usamos rollos terminados. Intervalo medio = días transcurridos registrados ÷ rollos terminados. Un año equivale a 365,2425 días. Las cifras de 10 y 30 años se calculan sin redondear la media; los rollos mostrados se redondean al entero más cercano. La media reciente usa los intervalos completos de los rollos terminados en los últimos 30 días, sin recortarlos en el límite.',
+    '同居人数やロールの長さが変わると、交換のペースも変わります。':
+      'El ritmo puede cambiar si varía el número de personas en casa o la longitud del rollo.',
+    '観測間隔が1日未満です。開始・交換日時が正しいか確認してください。':
+      'La media observada es inferior a un día. Comprueba las horas de inicio y cambio.',
+    '{year}年をロールで見る': '{year}, visto en rollos',
+    年のロール図:
+      'Modelo de {year} como unos {count} rollos, dividido según la parte transcurrida del año. No representa consumo registrado.',
+    '1マスは最大{count}ロール': 'Hasta {count} rollos por cuadro',
+    換算上の過去: 'Pasado según el modelo',
+    換算上のこれから: 'Futuro según el modelo',
+    '今年の図は年の進行割合を当てはめたイメージです。実際の交換履歴ではありません。':
+      'La imagen aplica el avance del año a los rollos estimados. No muestra tus cambios reales.',
+    'Life Viewを閉じる': 'Cerrar Life View',
+    自分で選ぶ時間軸を見る: 'Elegir un horizonte · Life View',
+    'Life Viewは任意です。年齢の目安を選んだときだけ表示します。':
+      'Life View es opcional. Elige una edad de referencia si quieres explorar más.',
+    '何歳までを、一つの目安にしますか？':
+      '¿Qué edad quieres usar como referencia?',
+    '寿命の予測ではなく、自分で選ぶ時間の目安です。':
+      'Es un horizonte que tú eliges, no una predicción de cuánto vivirás.',
+    現在の年齢: 'Tu edad actual',
+    歳: 'años',
+    基準にする年齢: 'Edad de referencia',
+    自分で設定: 'Otra edad',
+    '{age}歳': '{age} años',
+    基準年齢を入力: 'Introduce una edad de referencia',
+    この目安で見る: 'Ver este horizonte',
+    'あなたが選んだ{age}歳という目安まで':
+      'Hasta los {age} años que has elegido como referencia',
+    'あと約{rolls}ロール': 'Unos {rolls} rollos hasta ese horizonte',
+    '約{days}日': 'Unos {days} días',
+    '基準日は{date}、その時点で{age}歳として設定':
+      'Fijado el {date}, con {age} años en ese momento',
+    '選んだ時間の目安に到達しました。必要なら、新しい目安を選べます。':
+      'Has llegado al punto de referencia elegido. Si quieres, puedes elegir otro.',
+    表示の細かさ: 'Escala de visualización',
+    選んだ時間軸の図:
+      'Unos {rolls} rollos hasta el horizonte elegido. Cada cuadro representa hasta {group} rollos.',
+    '表示は最大600マスにまとめます。':
+      'La vista agrupa los rollos en un máximo de 600 cuadros.',
+    'Life Viewの計算説明':
+      'Al fijar una referencia, la diferencia de edad × 365,2425 da un número aproximado de días. El objetivo queda anclado a esa fecha. Para esta vista: {days} días ÷ {interval} días por rollo. Sin fecha de nacimiento, las fechas basadas en la edad son aproximadas.',
+    実際に記録した区切りを見る: 'Ver tus momentos registrados',
+    ロール番号: 'Rollo {count}',
+    '今回の振り返りは、次の目標と一緒に最後に保存します。':
+      'Esta reflexión se guardará con tu próxima meta en el último paso.',
+    '時間スケールは、最初の1本のあとに。':
+      'Una nueva perspectiva, después del primer rollo.',
+    'まずは、ひと巻き分の暮らしを観測しましょう。交換すると、あなたのペースで時間をロールに換算できます。':
+      'Primero, vive lo que dura un rollo. En el siguiente cambio, podrás ver períodos más largos a tu propio ritmo.',
+    'ひと巻きから、もっと先の時間へ。': 'Un rollo. Una mirada más amplia.',
+    '少し先を眺めたら、次の小さな目標へ。':
+      'Mira un poco más allá y elige tu próximo pequeño paso.',
+    '空欄なら、交換ボタンを押した時刻で記録します。':
+      'Déjalo en blanco para usar el momento en que pulsaste «Registrar cambio».',
+    '振り返って、時間スケールへ': 'Reflexionar y ver el tiempo en rollos',
+    '次のひと巻きに戻ろう。': 'VOLVAMOS AL PRÓXIMO PASO',
+    振り返りに戻る: 'Volver a la reflexión',
+    '記録の日時を確認してください。':
+      'Comprueba las fechas y horas de tus registros.',
+    '基準年齢は現在の年齢より大きい整数で、150歳以下にしてください。':
+      'Introduce edades enteras. La edad de referencia debe superar la actual y no exceder los 150 años.',
+    'Life Viewの設定を読み込めませんでした。':
+      'No se pudieron cargar los ajustes de Life View. Vuelve a introducir las edades si quieres reemplazarlos.',
+    'Life Viewの設定を保存できませんでした。':
+      'No se pudieron guardar los ajustes de Life View. Revisa el almacenamiento del navegador.',
+    '年齢を入力してください。': 'Introduce tu edad y una edad de referencia.',
+    約1ロール: '≈ 1 rollo',
+    '1マスは1ロール': '1 rollo por cuadro',
+    あと約1ロール: 'Aproximadamente 1 rollo hasta ese horizonte',
+    約1日: 'Aproximadamente 1 día',
   },
 } as const;

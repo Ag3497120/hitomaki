@@ -129,43 +129,50 @@ test('英語ブランドと差し込み文章、既知・未知のエラーを�
   );
 });
 test('画面の固定文章とラベルが翻訳され、t()の文字列キーが全て存在する', () => {
-  const source = fs.readFileSync(
-    new URL('../app/page.tsx', import.meta.url),
-    'utf8',
-  );
-  const file = ts.createSourceFile(
-    'page.tsx',
-    source,
-    ts.ScriptTarget.Latest,
-    true,
-    ts.ScriptKind.TSX,
-  );
-  function visit(node) {
-    if (ts.isJsxText(node)) {
-      const value = node.text.trim();
-      assert.ok(
-        !value || ['01', 'HITOMAKI'].includes(value),
-        `Untranslated JSX: ${value}`,
-      );
+  for (const sourcePath of [
+    '../app/page.tsx',
+    '../components/time-scale.tsx',
+  ]) {
+    const source = fs.readFileSync(
+      new URL(sourcePath, import.meta.url),
+      'utf8',
+    );
+    const file = ts.createSourceFile(
+      'page.tsx',
+      source,
+      ts.ScriptTarget.Latest,
+      true,
+      ts.ScriptKind.TSX,
+    );
+    function visit(node) {
+      if (ts.isJsxText(node)) {
+        const value = node.text.trim();
+        assert.ok(
+          !value ||
+            ['01', 'HITOMAKI'].includes(value) ||
+            /^[\s÷=≈·]+$/.test(value),
+          `Untranslated JSX: ${value}`,
+        );
+      }
+      if (
+        ts.isJsxAttribute(node) &&
+        ['placeholder', 'aria-label', 'title'].includes(node.name.getText(file))
+      )
+        assert.ok(
+          !ts.isStringLiteral(node.initializer),
+          `Untranslated attribute: ${node.getText(file)}`,
+        );
+      if (
+        ts.isCallExpression(node) &&
+        node.expression.getText(file) === 't' &&
+        ts.isStringLiteral(node.arguments[0])
+      )
+        assert.ok(
+          Object.hasOwn(messages.ja, node.arguments[0].text),
+          `Unknown message: ${node.arguments[0].text}`,
+        );
+      ts.forEachChild(node, visit);
     }
-    if (
-      ts.isJsxAttribute(node) &&
-      ['placeholder', 'aria-label', 'title'].includes(node.name.getText(file))
-    )
-      assert.ok(
-        !ts.isStringLiteral(node.initializer),
-        `Untranslated attribute: ${node.getText(file)}`,
-      );
-    if (
-      ts.isCallExpression(node) &&
-      node.expression.getText(file) === 't' &&
-      ts.isStringLiteral(node.arguments[0])
-    )
-      assert.ok(
-        Object.hasOwn(messages.ja, node.arguments[0].text),
-        `Unknown message: ${node.arguments[0].text}`,
-      );
-    ts.forEachChild(node, visit);
+    visit(file);
   }
-  visit(file);
 });
