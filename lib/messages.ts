@@ -1,5 +1,6 @@
 export const messages = {
   ja: {
+    GitHubでソースを見る: 'GitHubでソースを見る（新しいタブ）',
     ひと巻き: 'ひと巻き',
     'ひと巻き ホーム': 'ひと巻き ホーム',
     '暮らしの区切りを、時間の気づきに。': '暮らしの区切りを、時間の気づきに。',
@@ -271,6 +272,7 @@ export const messages = {
     約1日: '約1日',
   },
   en: {
+    GitHubでソースを見る: 'View source on GitHub (opens a new tab)',
     ひと巻き: 'Between Rolls',
     'ひと巻き ホーム': 'Between Rolls home',
     '暮らしの区切りを、時間の気づきに。': 'Life happens between rolls.',
@@ -551,6 +553,7 @@ export const messages = {
     約1日: 'About 1 day',
   },
   'zh-Hans': {
+    GitHubでソースを見る: '在 GitHub 上查看源代码（在新标签页打开）',
     ひと巻き: '一卷时光',
     'ひと巻き ホーム': '一卷时光首页',
     '暮らしの区切りを、時間の気づきに。': '用日常的小节点，感受时间的流逝。',
@@ -811,6 +814,7 @@ export const messages = {
     約1日: '约1天',
   },
   ko: {
+    GitHubでソースを見る: 'GitHub에서 소스 보기 (새 탭에서 열림)',
     ひと巻き: '한 롤의 시간',
     'ひと巻き ホーム': '한 롤의 시간 홈',
     '暮らしの区切りを、時間の気づきに。': '일상의 작은 쉼표로 시간을 돌아봐요.',
@@ -1081,6 +1085,7 @@ export const messages = {
     約1日: '약 1일',
   },
   es: {
+    GitHubでソースを見る: 'Ver el código en GitHub (se abre en otra pestaña)',
     ひと巻き: 'Hitomaki',
     'ひと巻き ホーム': 'Inicio de Hitomaki',
     '暮らしの区切りを、時間の気づきに。':

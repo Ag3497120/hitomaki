@@ -1240,6 +1240,24 @@ html:lang(es) .brand {
   align-items: center;
   gap: 18px;
 }
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid #dce3df;
+  border-radius: 50%;
+  color: var(--foreground);
+}
+.github-link:hover {
+  background: #e8eee9;
+}
+.github-link:focus-visible {
+  outline: 2px solid #36705a;
+  outline-offset: 3px;
+}
 .language-select [data-slot='native-select'],
 #settings-language {
   min-height: 44px;
@@ -1364,7 +1382,7 @@ html:lang(es) .brand {
     gap: 12px;
   }
   .header-actions {
-    gap: 0;
+    gap: 8px;
   }
   .header-actions .local-badge {
     display: none;
@@ -1402,7 +1420,7 @@ html:lang(es) .brand {
     padding: 16px;
   }
 }
-@media (max-width: 370px) {
+@media (max-width: 460px) {
   .site-header {
     flex-wrap: wrap;
   }

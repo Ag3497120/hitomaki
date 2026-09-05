@@ -3,7 +3,12 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'ひと巻き — これからの時間を考える',
-  icons: { icon: '/favicon.svg' },
+  icons: {
+    icon:
+      process.env.HITOMAKI_GITHUB_PAGES === '1'
+        ? '/hitomaki/favicon.svg'
+        : '/favicon.svg',
+  },
   description:
     'トイレットペーパーを交換するたび、過ぎた時間を振り返り、次のひと巻きの小さな目標を決める。',
 };

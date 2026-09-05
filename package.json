@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=22.13.0"
+    "node": ">=22.18.0"
   },
   "scripts": {
     "dev": "vinext dev",
@@ -12,7 +12,8 @@
     "lint": "oxlint app lib tests components/time-scale.tsx vite.config.ts next.config.ts",
     "format": "oxfmt",
     "test": "node --test tests/*.test.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:pages": "node scripts/build-pages.mjs"
   },
   "dependencies": {
     "react": "19.2.8",

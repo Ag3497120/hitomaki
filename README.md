@@ -1,94 +1,103 @@
-# ひと巻き / Hitomaki
+# Between Rolls · ひと巻き
 
-トイレットペーパーの交換を、時間の振り返りと小さな目標のきっかけにする日本語Webアプリ。
+[English](README.md) · [日本語](README.ja.md) · [简体中文](README.zh-CN.md) · [한국어](README.ko.md) · [Español](README.es.md)
 
-## 使い方
+**Life happens between rolls.**
 
-1. 目標と1日に自分のために使いたい時間を入力し、ロールの使用を開始。
-2. 交換時に「できた」「少し進んだ」「今回は見送った」を選び、次の目標を保存。
-3. 「これまで」で履歴を、「設定」で換算条件を確認・変更。
+A toilet roll is an unexpectedly tangible clock. When you replace one, pause to notice the time that passed, reflect on a small goal, and choose what to carry into the next roll.
 
-開始・交換日時は過去の日時を指定できる。誤った直前の交換は確認画面から取り消せる。
+[Open the app](https://ag3497120.github.io/hitomaki/) · [日本語 README](README.ja.md) · [Join the discussion](https://github.com/Ag3497120/hitomaki/issues)
 
-## 開発
+## How it works
 
-Node.js 22.18以降（テストは組み込みTypeScript対応を使用）。
+1. Start a roll and choose a small goal: read a chapter, take a walk, or contact someone you care about.
+2. Live your life. The everyday screen shows time since the roll started and an optional reading equivalent based on your own settings.
+3. On replacement, reflect on the previous goal. Completing the first roll unlocks a wider time scale: one year, ten years, thirty years.
+4. Open **Life View** only if you want to. Choose a reference age yourself; this is a time horizon, never a prediction of your lifespan.
+5. Choose the next goal and save the exchange. You can revisit your records or undo the last exchange.
+
+Available in **Japanese, English, Simplified Chinese, Korean, and Spanish**. Language selection persists locally. Country-specific wording still needs community and native-speaker review; UI language does not determine a user's country or household habits.
+
+## What the numbers mean
+
+The current MVP uses recorded start and finish timestamps. It does **not** assume a national average number of days per roll or infer an individual's paper consumption from a shared roll.
+
+```text
+average interval (days) = sum of completed roll intervals / completed rolls
+rolls per year          = 365.2425 / average interval
+rolls in N years        = N × 365.2425 / average interval
+reading equivalent     = elapsed days × chosen minutes per day / chosen minutes per page
+```
+
+Only completed intervals contribute to the roll average. The active roll is excluded. A first-roll estimate is explicitly labeled as preliminary. After at least three completed rolls, the recent comparison uses complete intervals of rolls that finished in the preceding 30 days. Calculations retain precision until display rounding.
+
+The reading defaults (10 minutes per day, 2 minutes per page) are editable examples, **not measured reading, achievements, or population statistics**. The roll grids illustrate a modeled time scale, not a record of paper already used.
+
+Life View anchors `(reference age − current age) × 365.2425` days to the date the user saves their age setting. It uses age in whole years, not a birthday. Its remaining-roll estimate divides the remaining days on that chosen horizon by the recorded average. It does not reset the horizon each time it opens, infer longevity, or send mortality notifications.
+
+Changing roll size, sharing arrangements, travel, and multiple bathrooms can change the observed interval. Their interpretation is an open research question, not a hidden correction factor.
+
+## Privacy and storage
+
+The app saves goals, notes, roll history, language, and the optional age horizon in this browser's `localStorage`. The app has no account system, analytics SDK, or server endpoint for these records. GitHub Pages still serves the files over the network and may process ordinary request metadata under its own policies.
+
+- No cross-device sync, backup, or import/export is implemented yet.
+- Clearing browser/site data can erase the records. Private browsing may not preserve them.
+- Storage belongs to an **origin**. Records on the earlier `chatgpt.site` version do not automatically appear on `ag3497120.github.io`, and vice versa. Keep the earlier site if you need to consult those records.
+- Other projects on the same `ag3497120.github.io` origin share a browser storage boundary. Do not treat this MVP as storage for sensitive personal information.
+- The GitHub icon opens this repository in a new tab; it does not send your journal to GitHub.
+
+## Open research
+
+We publish assumptions before adopting country or household models. Contributions can be in English or Japanese; include the language/region for copy suggestions.
+
+| Discussion                                                                                   | Scope                                                                  |
+| -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [#1 Country profiles and roll sizes](https://github.com/Ag3497120/hitomaki/issues/1)         | Regional coverage, paper dimensions, ply, sources, uncertainty         |
+| [#2 Natural wording by country and language](https://github.com/Ag3497120/hitomaki/issues/2) | Local expression, tone, native-speaker review                          |
+| [#3 Individual vs shared rolls](https://github.com/Ag3497120/hitomaki/issues/3)              | What an observation represents; physical clock vs personal consumption |
+| [#4 Country Profile: Japan](https://github.com/Ag3497120/hitomaki/issues/4)                  | How should a toilet roll represent time in Japan?                      |
+| [#5 Country Profile: United States](https://github.com/Ag3497120/hitomaki/issues/5)          | How should a toilet roll represent time in the US?                     |
+| [#6 Normalization methodology](https://github.com/Ag3497120/hitomaki/issues/6)               | Measurement hierarchy, units, versioning, and adoption criteria        |
+
+[Research policy](docs/research-policy.md) explains the proposed profile structure. Issue templates cover country profiles, localization, household modes, and methodology. All country defaults remain **unresearched proposals** until sources, ranges, assumptions, confidence, and versions have been reviewed. A switch after “five rolls” is a discussion example, not an implemented or validated threshold.
+
+## Development
+
+Use **Node.js 24** (minimum 22.18) and npm.
 
 ```sh
 npm ci
 npm run dev
-npm test
-npm run typecheck
-npm run lint
-npm run build
 ```
 
-Vinext / React / TypeScript / Tailwind / Base UIを利用。Sites向けWorkerを生成する。
+Open the local address printed by the development server. The stack is React 19, TypeScript, Vinext/Vite, Tailwind CSS, and Base UI components.
 
-## 計算
+```sh
+npm test
+npm run lint
+npm run typecheck
+npm run build:pages
+```
 
-- 経過時間は開始と現在（履歴は交換日時）の実時間差。
-- 時間換算 = 経過ミリ秒 / 86,400,000 × 本人が設定した1日の分数。
-- 読書換算 = 上記の時間 / 本人が設定した1ページの分数。
-- 表示はそれぞれ切り捨て。初期値10分/日・2分/ページは変更可能な例で、統計値ではない。
-- 換算は実際の読書量・浪費時間・紙の消費量の測定ではない。
-- 年の残りは端末の現地暦日で数え、今日を含む。個人の寿命は推定しない。
-- 完了した記録には当時の換算条件を保持する。
+The Pages build sets `/hitomaki` as the base path, statically exports the app, and stages only public files in `out/`. To preview the project path locally:
 
-## 保存
+```sh
+mkdir -p .preview/hitomaki
+cp -R out/. .preview/hitomaki/
+python3 -m http.server 4173 --directory .preview
+```
 
-`hitomaki.v1`キーでこのブラウザのlocalStorageに保存。アカウント同期・サーバー保存なし。ブラウザデータの消去で失われる。閲覧するURLのオリジンごとに別の記録となる。
+Visit `http://localhost:4173/hitomaki/`. The separate `npm run build` command preserves the original Sites/Cloudflare Worker build; `npm start` serves that Worker output locally. The original `.openai/hosting.json` belongs to the original Sites project and is not needed for Pages deployment or authorization.
 
-不正な保存データは自動で上書きしない。保存失敗時には状態を更新せずエラーを表示。別タブ変更の通知と保存直前の差分検出で通常の競合を防ぐ。ただしlocalStorage自体にトランザクションはなく、厳密な同時書き込み保証はない。
+## Deployment
 
-## 検証
+[Deploy to GitHub Pages](.github/workflows/pages.yml) runs on pushes to `main` and manual dispatch. It installs locked dependencies, runs tests/lint/type checks, builds static output, and deploys `out/` using GitHub's Pages Actions. Pull requests run the same checks without deploying. No application secret is needed.
 
-- `tests/roll.test.mjs`: 開始・交換・復元、履歴の条件保持、時刻/入力の検証、取り消し、破損検出、年末・うるう年。
-- TypeScriptと本番ビルドで検証。
-- ブラウザのクリック操作・スクリーンショットによるQAは未実施。
-- 対応ブラウザ向けにWebMCPの`get_roll_summary`と`update_current_roll_goal`を提供。未対応ブラウザでは登録を省略。対応する実行コンテキストがないためWebMCP契約の実動作は未検証。
+In repository **Settings → Pages**, select **GitHub Actions**. Forks using a different repository name or a custom domain must update the Pages base path in `next.config.ts`, the icon path in `app/layout.tsx`, the staging path in `scripts/build-pages.mjs`, and the public links. The current deployment targets this repository's `/hitomaki/` path.
 
-## MVPで含めていないもの
+## Validation and credits
 
-通知、データ同期、利用分析、共有、エネルギー換算。寿命の推定は行わず、Life Viewでは本人が選んだ年齢への時間換算を表示する。
+Automated tests cover roll records, invalid input, undo, language fallback and dictionary parity, averaging, horizon persistence, and bounded visualizations. Static export checks verify referenced local assets. Browser interaction/accessibility audits and native-speaker review remain further work; passing these checks does not establish them.
 
-`lint`は作成したapp/lib/testsと設定ファイルを検査し、生成済みのUIカタログは対象に含めない。依存関係の監査でReact/RSC・Vinext・Viteの既知問題は修正版へ更新。残る監査指摘はビルド・開発用依存関係（undici等）にあり、アプリはそれらのネットワークAPIを使用しない。
-
-## 言語と地域の表記
-
-日本語、英語、中国語（簡体字）、韓国語、スペイン語に対応。ヘッダーまたは設定から切り替え、`hitomaki.language.v1`に言語だけを保存する。初回はブラウザの優先言語から選び、非対応なら英語を使用する。記録データのキー・形式は変更しない。
-
-英語版のブランドは **Between Rolls**、コピーは **Life happens between rolls.**。語りかけは罪悪感や生産性の評価ではなく、振り返りと次の選択を促す。地域別の文化に関する受け止め方は未検証の仮説であり、国籍・所在地の推定や、国による読書速度の自動変更は行わない。
-
-表示言語とブラウザに設定された地域を合わせて、Intlで日付・日付範囲・数値・単位を整える（英語のen-GB、スペイン語のes-MX等）。一致する設定がなければja-JP / en-US / zh-Hans-CN / ko-KR / es-ESを使用。中国語のUIは地域にかかわらず簡体字。日時入力コントロールの外観はブラウザにも依存する。
-
-ラベル、説明、目標例、振り返り、保存通知、入力エラー、ページタイトル、document.langを切り替える。ユーザーが書きかけ・保存した目標やメモは翻訳しない。翻訳は編集済みの固定辞書で、外部AIへのデータ送信はない。
-
-`tests/i18n.test.mjs`で辞書の網羅性・差し込み変数、言語選択、地域の表記、単数複数、入力内容の保持、エラー表示、未翻訳の画面テキストを検査。全15件の自動テストが通過。各言語の実機ブラウザ操作とネイティブ話者による表現レビューは未実施。
-
-換算の詳細には、記録した開始日時、換算時点、経過時間、仮定、読書の換算結果を分けて表示する。
-
-
-## 交換時に開く時間スケール
-
-初回開始前・使用中の画面にあった年の残り日数表示を外した。交換ボタンを押すと、その時刻で観測を止める（日時の手動変更も可能）。振り返りを選ぶと、保存前の候補記録を含めた時間スケールを開く。次の目標を決めた最後の操作で、履歴と次のロールを一緒に保存する。途中で閉じた場合は交換を保存しない。保存前の状態が変わっていれば再確認を求める。
-
-- 平均間隔 = 完了したロールの経過日数の合計 / 完了本数。
-- 年間ロール数 = 365.2425 / 平均間隔。10年・30年も丸め前の値から換算。
-- 1本のみは「初期推定」。複数本でも未来の予測精度や信頼度の数値は付けない。
-- 3本以降は、直近30日内に終了したロールの全使用期間の平均と対象本数を表示。期間境界では切り詰めず、該当記録なしなら表示しない。
-- 未完了のロールは平均に含めない。交換を取り消すと、その記録は以後の換算から外れる。
-- 年のロール図は、年間換算に暦年の進行割合を当てはめたモデル。実際の交換履歴とは区別して表示。
-- 番号で選べる実記録には、日付・目標・結果・メモのみを表示。実測していない読書ページ数や歩行距離は追加しない。
-
-### 任意のLife View
-
-交換時の時間スケールから本人が開いた場合だけ表示。現在の年齢と80・90・100歳または任意の基準年齢を指定する。年齢は整数、0〜149歳、基準は現在より上で150歳以下。生年月日を使わない近似であることを説明する。
-
-初回設定時に `(基準年齢 - 入力年齢) × 365.2425日` を設定時刻へ加えて目標日を固定する。以後はその目標までの日数を交換時点で換算するため、開き直すたびに残り期間が延びることはない。期限に到達したら0に止める。表示は交換時点のスナップショットで、日々の通知やカウントダウンはしない。
-
-設定は `hitomaki.life-view.v1` に端末内保存。保存済みの基準も、Life Viewを明示的に開くまで表示しない。基準を変更する場合は現在の年齢を再入力する。Life View設定の保存は交換記録の保存とは別操作。
-
-ロールの図は1・10・100ロール単位を選べ、必要に応じて最大600マスに集約する。実際の表示単位と端数を示し、大きい換算値でも描画件数を制限する。
-
-`tests/time-scale.test.mjs`は初回の解放条件、端数、平均の方法、30日境界、保存前の不変性、固定した交換日時、取り消し、年齢入力、基準日の固定、上限付き可視化を検証する。既存のものを含め23件の自動テストが通過。ブラウザの操作テストは未実施。
+The GitHub mark comes from [GitHub Octicons](https://github.com/primer/octicons), used under its [MIT license](docs/octicons-LICENSE.txt). Other dependency licenses remain with their respective packages.
