@@ -10,7 +10,7 @@ Cambiar un rollo de papel higiénico puede ser una pequeña pausa para mirar el 
 
 ## La aplicación, de un vistazo
 
-<img src="docs/screenshots/app-es.png" width="360" alt="Pantalla inicial en español con selector de idioma, enlace a GitHub y la invitación Todo empieza con un rollo" />
+<img src="docs/screenshots/app-es.jpg" width="360" alt="Pantalla inicial en español con selector de idioma, enlace a GitHub y la invitación Todo empieza con un rollo" />
 
 _Pantalla real del primer uso en español, en una vista estrecha y sin registros personales. El formulario para elegir una meta continúa debajo de esta imagen._
 

@@ -10,7 +10,7 @@
 
 ## 界面与功能
 
-<img src="docs/screenshots/app-zh-CN.png" width="360" alt="简体中文初次使用界面，显示语言选择、GitHub链接和从第一卷开始的提示" />
+<img src="docs/screenshots/app-zh-CN.jpg" width="360" alt="简体中文初次使用界面，显示语言选择、GitHub链接和从第一卷开始的提示" />
 
 _这是简体中文版的实际初次使用界面，采用窄屏显示，没有个人记录。目标输入区位于截图下方。_
 

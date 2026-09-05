@@ -10,7 +10,7 @@
 
 ## 画面とできること
 
-<img src="docs/screenshots/app-ja.png" width="360" alt="日本語の初回画面。言語切り替え、GitHubへのリンク、最初のひと巻きの案内を表示" />
+<img src="docs/screenshots/app-ja.jpg" width="360" alt="日本語の初回画面。言語切り替え、GitHubへのリンク、最初のひと巻きの案内を表示" />
 
 _実際の日本語版の初回画面を、幅の狭い表示で撮影しています。個人の記録は含まれていません。この下に目標の入力欄が続きます。_
 

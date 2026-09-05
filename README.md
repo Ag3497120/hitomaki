@@ -10,7 +10,7 @@ A toilet roll is an unexpectedly tangible clock. When you replace one, pause to 
 
 ## Screens and features
 
-<img src="docs/screenshots/app-en.png" width="360" alt="English initial screen showing the language selector, GitHub link and Start with one roll prompt" />
+<img src="docs/screenshots/app-en.jpg" width="360" alt="English initial screen showing the language selector, GitHub link and Start with one roll prompt" />
 
 _Actual English first-use screen in a narrow viewport. No personal records are shown. The goal form continues below this view._
 

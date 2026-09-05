@@ -10,7 +10,7 @@
 
 ## 화면과 주요 기능
 
-<img src="docs/screenshots/app-ko.png" width="360" alt="언어 선택, GitHub 링크와 첫 롤 안내가 표시된 한국어 첫 사용 화면" />
+<img src="docs/screenshots/app-ko.jpg" width="360" alt="언어 선택, GitHub 링크와 첫 롤 안내가 표시된 한국어 첫 사용 화면" />
 
 _실제 한국어 첫 사용 화면을 좁은 화면에서 촬영했습니다. 개인 기록은 포함하지 않았습니다. 목표 입력란은 이 화면 아래로 이어집니다._
 

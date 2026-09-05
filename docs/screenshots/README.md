@@ -6,10 +6,10 @@ The fresh first-use screen contains no saved personal records. Each capture uses
 
 | File          | Language |
 | ------------- | -------- |
-| app-ja.png    | 日本語   |
-| app-en.png    | English  |
-| app-zh-CN.png | 简体中文 |
-| app-ko.png    | 한국어   |
-| app-es.png    | Español  |
+| app-ja.jpg    | 日本語   |
+| app-en.jpg    | English  |
+| app-zh-CN.jpg | 简体中文 |
+| app-ko.jpg    | 한국어   |
+| app-es.jpg    | Español  |
 
 Update the matching screenshot when visible copy or layout changes. Keep private goals, notes, and history out of public documentation.
