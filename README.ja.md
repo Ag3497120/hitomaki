@@ -88,3 +88,7 @@ GitHub Pages向けの公開ファイルは `out/` に生成されます。`main`
 自動検証は計算・保存データ・言語辞書・静的出力を対象としています。ブラウザー操作やアクセシビリティの監査、母語話者によるレビューは今後の課題です。
 
 GitHubアイコンは[Octicons](https://github.com/primer/octicons)の[MITライセンス](docs/octicons-LICENSE.txt)に基づいて利用しています。
+
+## 作者・メンテナー
+
+[Ag3497120](https://github.com/Ag3497120)がこのプロジェクトを企画し、ロールを時間の物差しにする考え方や多言語での体験など、プロダクトの方向性を定めています。改善提案やコントリビューションは[Issue](https://github.com/Ag3497120/hitomaki/issues)で受け付けています。

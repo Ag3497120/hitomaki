@@ -108,3 +108,7 @@ python3 -m http.server 4173 --directory .preview
 자동 검사는 기록, 잘못된 입력, 되돌리기, 언어 대체와 사전 일치, 평균, 나이 기준 유지, 격자 상한 및 정적 파일 참조를 확인합니다. 브라우저 조작·접근성 감사·해당 언어 사용자의 검토는 아직 남아 있습니다.
 
 GitHub 마크는 [Octicons](https://github.com/primer/octicons)의 [MIT 라이선스](docs/octicons-LICENSE.txt)에 따라 사용합니다. 각 의존성에는 해당 라이선스가 적용됩니다.
+
+## 만든 사람과 유지 관리
+
+[Ag3497120](https://github.com/Ag3497120)가 이 프로젝트를 기획하고, 롤을 시간의 기준으로 삼는 아이디어와 다국어 경험 등 제품의 방향을 정하고 있습니다. 개선 제안과 기여는 [Issue](https://github.com/Ag3497120/hitomaki/issues)에서 환영합니다.

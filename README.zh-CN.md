@@ -108,3 +108,7 @@ python3 -m http.server 4173 --directory .preview
 自动检查覆盖记录、非法输入、撤销、语言回退和词典一致性、平均值、年龄参考时间与网格上限，以及静态资源引用。浏览器交互、无障碍审计和母语审校仍有待完成。
 
 GitHub标志来自[Octicons](https://github.com/primer/octicons)，按其[MIT许可](docs/octicons-LICENSE.txt)使用。各依赖保留各自的许可。
+
+## 创作者与维护者
+
+[Ag3497120](https://github.com/Ag3497120)发起了这个项目，并负责产品方向，包括用纸卷作为时间刻度的想法和多语言体验。欢迎通过[Issue](https://github.com/Ag3497120/hitomaki/issues)提出建议并参与贡献。

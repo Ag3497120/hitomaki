@@ -108,3 +108,7 @@ Abre `http://localhost:4173/hitomaki/`. El comando separado `npm run build` cons
 Las comprobaciones automáticas cubren registros, entradas inválidas, deshacer, idiomas alternativos y coherencia de diccionarios, medias, persistencia del horizonte elegido, límites de las cuadrículas y referencias a archivos estáticos. Quedan pendientes la revisión de interacción en navegador, una auditoría de accesibilidad y la revisión por hablantes de cada región.
 
 El símbolo de GitHub procede de [Octicons](https://github.com/primer/octicons) y se utiliza bajo su [licencia MIT](docs/octicons-LICENSE.txt). Cada dependencia conserva su propia licencia.
+
+## Autor y mantenimiento
+
+[Ag3497120](https://github.com/Ag3497120) creó este proyecto y define su dirección, desde la idea de usar un rollo como reloj físico hasta la experiencia en varios idiomas. Puedes proponer mejoras y participar a través de los [Issues](https://github.com/Ag3497120/hitomaki/issues).

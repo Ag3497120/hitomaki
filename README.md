@@ -118,3 +118,7 @@ In repository **Settings → Pages**, select **GitHub Actions**. Forks using a d
 Automated tests cover roll records, invalid input, undo, language fallback and dictionary parity, averaging, horizon persistence, and bounded visualizations. Static export checks verify referenced local assets. Browser interaction/accessibility audits and native-speaker review remain further work; passing these checks does not establish them.
 
 The GitHub mark comes from [GitHub Octicons](https://github.com/primer/octicons), used under its [MIT license](docs/octicons-LICENSE.txt). Other dependency licenses remain with their respective packages.
+
+## Creator and maintainer
+
+[Ag3497120](https://github.com/Ag3497120) created this project and guides its product direction, including the idea of using a roll as a physical clock and the multilingual experience. Suggestions and contributions are welcome through the [Issues](https://github.com/Ag3497120/hitomaki/issues).
