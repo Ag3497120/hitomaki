@@ -8,6 +8,23 @@ Cambiar un rollo de papel higiénico puede ser una pequeña pausa para mirar el 
 
 [Abrir la aplicación](https://ag3497120.github.io/hitomaki/) · [Participar en las propuestas](https://github.com/Ag3497120/hitomaki/issues)
 
+## La aplicación, de un vistazo
+
+<img src="docs/screenshots/app-es.png" width="360" alt="Pantalla inicial en español con selector de idioma, enlace a GitHub y la invitación Todo empieza con un rollo" />
+
+_Pantalla real del primer uso en español, en una vista estrecha y sin registros personales. El formulario para elegir una meta continúa debajo de esta imagen._
+
+| Qué puedes hacer                     | Cómo te acompaña la aplicación                                                                 |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| Elegir una pequeña meta              | Decide algo que te gustaría hacer antes del próximo cambio y reserva un poco de tiempo al día. |
+| Notar el tiempo que pasa             | Consulta cuánto tiempo ha transcurrido desde que empezaste el rollo.                           |
+| Imaginar una equivalencia en lectura | Ajusta los minutos diarios y por página para explorar lo que sería posible con esos supuestos. |
+| Hacer una pausa al cambiar el rollo  | Anota cómo va tu meta, deja una nota breve y elige la siguiente.                               |
+| Mirar períodos más largos            | Después del primer rollo, convierte uno, diez y treinta años a tu ritmo observado.             |
+| Elegir tu horizonte                  | Abre Life View si te apetece y escoge tú la edad de referencia.                                |
+| Volver a tu recorrido                | Revisa metas y notas anteriores o deshaz el último cambio de rollo.                            |
+| Usar tu idioma                       | Cambia entre cinco idiomas y visita el repositorio público desde el icono de GitHub.           |
+
 ## Cómo funciona
 
 1. Registra cuándo empiezas un rollo y elige una pequeña meta.

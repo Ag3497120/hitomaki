@@ -8,6 +8,23 @@ A toilet roll is an unexpectedly tangible clock. When you replace one, pause to 
 
 [Open the app](https://ag3497120.github.io/hitomaki/) · [日本語 README](README.ja.md) · [Join the discussion](https://github.com/Ag3497120/hitomaki/issues)
 
+## Screens and features
+
+<img src="docs/screenshots/app-en.png" width="360" alt="English initial screen showing the language selector, GitHub link and Start with one roll prompt" />
+
+_Actual English first-use screen in a narrow viewport. No personal records are shown. The goal form continues below this view._
+
+| What you can do                 | How the app helps                                                                                |
+| ------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Start a small goal              | Choose something you want to do before the next roll; set aside a little time each day.          |
+| Notice elapsed time             | See how long this roll has been part of your everyday life.                                      |
+| Explore a reading equivalent    | Change the minutes per day and per page; the result is a possibility based on those assumptions. |
+| Reflect when you replace a roll | Record your goal's progress and a short note, then choose the next goal.                         |
+| Open a wider time scale         | After the first completed roll, see one, ten, and thirty years in rolls at the recorded pace.    |
+| Choose a personal horizon       | Open the optional Life View and choose a reference age yourself.                                 |
+| Revisit your journey            | Browse earlier goals and notes, or undo the latest exchange.                                     |
+| Use your preferred language     | Switch among five languages; open the public GitHub repository from the header icon.             |
+
 ## How it works
 
 1. Start a roll and choose a small goal: read a chapter, take a walk, or contact someone you care about.
